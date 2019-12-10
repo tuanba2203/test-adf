@@ -71,18 +71,8 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"rootPath": {
-								"value": "adftutorial/spark/script",
-								"type": "Expression"
-							},
-							"entryFilePath": {
-								"value": "WordCount_Spark.py",
-								"type": "Expression"
-							},
-							"sparkJobLinkedService": {
-								"referenceName": "AzureBlobStorage1",
-								"type": "LinkedServiceReference"
-							}
+							"rootPath": "adftutorial/spark/script",
+							"entryFilePath": "WordCount_Spark.py"
 						},
 						"linkedServiceName": {
 							"referenceName": "AzureHDInsightLinkedService",
@@ -93,8 +83,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureHDInsightLinkedService')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureHDInsightLinkedService')]"
 			]
 		},
 		{
@@ -119,7 +108,7 @@
 				"type": "HDInsightOnDemand",
 				"typeProperties": {
 					"clusterType": "spark",
-					"clusterSize": 2,
+					"clusterSize": 4,
 					"timeToLive": "00:15:00",
 					"version": "3.6",
 					"hostSubscriptionId": "[parameters('AzureHDInsightLinkedService_properties_typeProperties_hostSubscriptionId')]",
