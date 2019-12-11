@@ -1,0 +1,112 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Tuan-TestDataFactory"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"HDInsightLinkedService_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'HDInsightLinkedService'"
+		},
+		"HDInsightLinkedService_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'HDInsightLinkedService'"
+		},
+		"HDInsightLinkedService_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'HDInsightLinkedService'"
+		},
+		"HDInsightLinkedService_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "22e1806d-1f3a-4373-8266-af64fb217efe"
+		},
+		"HDInsightLinkedService_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "DefaultResourceGroup"
+		},
+		"HDInsightLinkedService_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "c78d3fbe-5252-4982-8b5c-a6a01eb16975"
+		},
+		"HDInsightLinkedService_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "1bdf3247-53f0-447f-9b67-561b51c4e417"
+		},
+		"HDInsightLinkedService_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "root"
+		},
+		"HDInsightLinkedService_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "root"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"HDInsightLinkedService_clusterPassword": {
+						"value": "[parameters('HDInsightLinkedService_clusterPassword')]"
+					},
+					"HDInsightLinkedService_clusterSshPassword": {
+						"value": "[parameters('HDInsightLinkedService_clusterSshPassword')]"
+					},
+					"HDInsightLinkedService_servicePrincipalKey": {
+						"value": "[parameters('HDInsightLinkedService_servicePrincipalKey')]"
+					},
+					"HDInsightLinkedService_properties_typeProperties_hostSubscriptionId": {
+						"value": "[parameters('HDInsightLinkedService_properties_typeProperties_hostSubscriptionId')]"
+					},
+					"HDInsightLinkedService_properties_typeProperties_clusterResourceGroup": {
+						"value": "[parameters('HDInsightLinkedService_properties_typeProperties_clusterResourceGroup')]"
+					},
+					"HDInsightLinkedService_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('HDInsightLinkedService_properties_typeProperties_servicePrincipalId')]"
+					},
+					"HDInsightLinkedService_properties_typeProperties_tenant": {
+						"value": "[parameters('HDInsightLinkedService_properties_typeProperties_tenant')]"
+					},
+					"HDInsightLinkedService_properties_typeProperties_clusterUserName": {
+						"value": "[parameters('HDInsightLinkedService_properties_typeProperties_clusterUserName')]"
+					},
+					"HDInsightLinkedService_properties_typeProperties_clusterSshUserName": {
+						"value": "[parameters('HDInsightLinkedService_properties_typeProperties_clusterSshUserName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

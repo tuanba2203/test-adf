@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Tuan-TestDataFactory"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"HDInsightLinkedService_clusterPassword": {
+			"value": ""
+		},
+		"HDInsightLinkedService_clusterSshPassword": {
+			"value": ""
+		},
+		"HDInsightLinkedService_servicePrincipalKey": {
+			"value": ""
+		},
+		"HDInsightLinkedService_properties_typeProperties_hostSubscriptionId": {
+			"value": "22e1806d-1f3a-4373-8266-af64fb217efe"
+		},
+		"HDInsightLinkedService_properties_typeProperties_clusterResourceGroup": {
+			"value": "DefaultResourceGroup"
+		},
+		"HDInsightLinkedService_properties_typeProperties_servicePrincipalId": {
+			"value": "c78d3fbe-5252-4982-8b5c-a6a01eb16975"
+		},
+		"HDInsightLinkedService_properties_typeProperties_tenant": {
+			"value": "1bdf3247-53f0-447f-9b67-561b51c4e417"
+		},
+		"HDInsightLinkedService_properties_typeProperties_clusterUserName": {
+			"value": "root"
+		},
+		"HDInsightLinkedService_properties_typeProperties_clusterSshUserName": {
+			"value": "root"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
