@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Count",
+				"name": "CountWords",
 				"type": "HDInsightSpark",
 				"dependsOn": [],
 				"policy": {
@@ -23,7 +23,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "AzureHDInsightLinkedService",
+					"referenceName": "HDInsightLinkedService",
 					"type": "LinkedServiceReference"
 				}
 			}
