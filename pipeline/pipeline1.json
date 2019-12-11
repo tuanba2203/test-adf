@@ -16,7 +16,11 @@
 				"userProperties": [],
 				"typeProperties": {
 					"rootPath": "adftutorial/spark/script",
-					"entryFilePath": "WordCount_Spark.py"
+					"entryFilePath": "WordCount_Spark.py",
+					"sparkJobLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureHDInsightLinkedService",
