@@ -5,7 +5,14 @@
 			{
 				"name": "CountWords",
 				"type": "HDInsightSpark",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "DeleteOldResult",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.00:05:00",
 					"retry": 0,
@@ -26,6 +33,39 @@
 					"referenceName": "HDInsightLinkedService",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "PrintResult",
+				"type": "DatabricksSparkPython",
+				"dependsOn": [
+					{
+						"activity": "CountWords",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": []
+			},
+			{
+				"name": "DeleteOldResult",
+				"type": "AzureFunctionActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": []
 			}
 		],
 		"annotations": []
