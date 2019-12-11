@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Spark1",
+				"name": "Count",
 				"type": "HDInsightSpark",
 				"dependsOn": [],
 				"policy": {
