@@ -1,0 +1,62 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Tuan-TestDataFactory"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/HDInsightLinkedService')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HDInsightOnDemand",
+				"typeProperties": {
+					"clusterType": "spark",
+					"clusterSize": 2,
+					"timeToLive": "00:15:00",
+					"version": "3.6",
+					"hostSubscriptionId": "22e1806d-1f3a-4373-8266-af64fb217efe",
+					"clusterResourceGroup": "DefaultResourceGroup",
+					"servicePrincipalId": "c78d3fbe-5252-4982-8b5c-a6a01eb16975",
+					"osType": "Linux",
+					"tenant": "1bdf3247-53f0-447f-9b67-561b51c4e417",
+					"clusterNamePrefix": "",
+					"clusterUserName": "hdinsight",
+					"clusterPassword": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"clusterSshUserName": "hdinsight",
+					"clusterSshPassword": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"sparkVersion": "",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"linkedServiceName": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"headNodeSize": "",
+					"dataNodeSize": "",
+					"zookeeperNodeSize": "",
+					"subnetName": "",
+					"virtualNetworkId": ""
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

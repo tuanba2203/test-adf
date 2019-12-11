@@ -41,11 +41,11 @@
 		},
 		"HDInsightLinkedService_properties_typeProperties_clusterUserName": {
 			"type": "string",
-			"defaultValue": "root"
+			"defaultValue": "hdinsight"
 		},
 		"HDInsightLinkedService_properties_typeProperties_clusterSshUserName": {
 			"type": "string",
-			"defaultValue": "root"
+			"defaultValue": "hdinsight"
 		},
 		"containerUri": {
 			"type": "string",

@@ -30,10 +30,10 @@
 			"value": "1bdf3247-53f0-447f-9b67-561b51c4e417"
 		},
 		"HDInsightLinkedService_properties_typeProperties_clusterUserName": {
-			"value": "root"
+			"value": "hdinsight"
 		},
 		"HDInsightLinkedService_properties_typeProperties_clusterSshUserName": {
-			"value": "root"
+			"value": "hdinsight"
 		},
 		"containerUri": {
 			"value": ""
